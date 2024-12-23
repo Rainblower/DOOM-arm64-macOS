@@ -7,11 +7,14 @@
 #
 
 CC=gcc
-CFLAGS=-O -DNORMALUNIX -DLINUX
-LDFLAGS=
-LIBS=-lm
+CFLAGS=-O -DNORMALUNIX -DLINUX -I/opt/homebrew/Cellar/portaudio/19.7.0/include
+LDFLAGS=-L/opt/homebrew/Cellar/portaudio/19.7.0/lib
+LIBS=-lm -lportaudio
 
 O=linux
+
+clean_build: clean
+			$(MAKE) all
 
 all:	 $(O)/sndserver
 

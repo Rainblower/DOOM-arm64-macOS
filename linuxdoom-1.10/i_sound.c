@@ -739,22 +739,21 @@ I_InitSound()
 { 
 #ifdef SNDSERV
   char buffer[256];
-  
+  char resolved_path[256];
+
   if (getenv("DOOMWADDIR"))
     sprintf(buffer, "%s/%s",
 	    getenv("DOOMWADDIR"),
 	    sndserver_filename);
   else
     sprintf(buffer, "%s", sndserver_filename);
-  
-  // start sound process
-  if ( !access(buffer, X_OK) )
-  {
-    strcat(buffer, " -quiet");
-    sndserver = popen(buffer, "w");
+
+  strcat(buffer, " -quiet");
+  sndserver = popen(buffer, "w");
+  if (!sndserver) {
+    perror("popen failed");
+    fprintf(stderr, "Could not execute command: %s\n", buffer);
   }
-  else
-    fprintf(stderr, "Could not start sound server [%s]\n", buffer);
 #else
     
   int i;

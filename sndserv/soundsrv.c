@@ -47,7 +47,6 @@ static const char rcsid[] = "$Id: soundsrv.c,v 1.3 1997/01/29 22:40:44 b1 Exp $"
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <malloc.h>
 #include <sys/stat.h>
 #include <sys/time.h>
 
@@ -55,6 +54,7 @@ static const char rcsid[] = "$Id: soundsrv.c,v 1.3 1997/01/29 22:40:44 b1 Exp $"
 #include "soundsrv.h"
 #include "wadread.h"
 
+#include <string.h>
 
 
 //
