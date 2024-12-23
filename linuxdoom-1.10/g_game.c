@@ -665,8 +665,7 @@ void G_Ticker (void)
  
 	    if (demoplayback) 
 		G_ReadDemoTiccmd (cmd); 
-        
-        if (demorecording)
+	    if (demorecording) 
 		G_WriteDemoTiccmd (cmd);
 	    
 	    // check for turbo cheats

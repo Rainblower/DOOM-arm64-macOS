@@ -6,7 +6,7 @@
 #
 CC=  gcc  # gcc or g++
 
-CFLAGS=-g -Wall -DNORMALUNIX -DLINUX -I/opt/X11/include -m32 # -DUSEASM 
+CFLAGS=-g -Wall -DNORMALUNIX -DLINUX -I/opt/X11/include # -DUSEASM
 LDFLAGS=-L/usr/X11R6/lib
 LIBS=-lXext -lX11 -lm
 
@@ -77,11 +77,15 @@ OBJS=				\
 		$(O)/info.o				\
 		$(O)/sounds.o
 
+clean_build: clean
+			$(MAKE) all
+
 all:	 $(O)/linuxxdoom
 
 clean:
 	rm -f *.o *~ *.flc
 	rm -f linux/*
+
 
 $(O)/linuxxdoom:	$(OBJS) $(O)/i_main.o
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(O)/i_main.o \

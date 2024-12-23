@@ -550,16 +550,16 @@ char            title[128];
 //
 void D_AddFile (char *file)
 {
-    int     numwadfiles;
-    char    *newfile;
-	
-    for (numwadfiles = 0 ; wadfiles[numwadfiles] ; numwadfiles++)
-	;
+	int     numwadfiles;
+	char    *newfile;
 
-    newfile = malloc (strlen(file)+1);
-    strcpy (newfile, file);
-	
-    wadfiles[numwadfiles] = newfile;
+	for (numwadfiles = 0 ; wadfiles[numwadfiles] ; numwadfiles++)
+		;
+
+	newfile = malloc (strlen(file)+1);
+	strcpy (newfile, file);
+
+	wadfiles[numwadfiles] = newfile;
 }
 
 //
@@ -587,7 +587,6 @@ void IdentifyVersion (void)
     if (!doomwaddir)
 	doomwaddir = ".";
 
-    // Commercial.
     doom2wad = malloc(strlen(doomwaddir)+1+9+1);
     sprintf(doom2wad, "%s/doom2.wad", doomwaddir);
 
@@ -1044,6 +1043,7 @@ void D_DoomMain (void)
     Z_Init ();
 
     printf ("W_Init: Init WADfiles.\n");
+
     W_InitMultipleFiles (wadfiles);
     
 
