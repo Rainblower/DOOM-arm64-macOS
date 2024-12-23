@@ -7,6 +7,7 @@ This is a fork of the original DOOM source code for linux ported to run on macOS
 ## Requirements
 
 * You'll likely need a copy of xQuartz (http://xquartz.org/) if you're using a newer version of macOS.
+* For display game you need xephyr `brew install xephyr`
 
 # Building the project
 
@@ -14,5 +15,5 @@ This is a fork of the original DOOM source code for linux ported to run on macOS
 2. Create a directory for your build `mkdir linux`
 3. Compile your `make`
 4. Copy over a file `.wad` file.
-5. Run Doom with `./linuxdoom`
+5. Run Doom with `./doom.sh`
 

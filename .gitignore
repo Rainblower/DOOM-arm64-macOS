@@ -3,6 +3,7 @@
 linxdoom-1.10/linux/
 *.o
 *.wad
+linuxdoom
 
 .DS_Store
 /.vscode/
